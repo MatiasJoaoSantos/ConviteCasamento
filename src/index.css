@@ -10,7 +10,9 @@ body { background: var(--bege); }
 
 
 /* --u: unidade de tamanho usada pelos textos. */
-.vertical { --u: 14vmin; }
+/* --w: largura livre entre as flores. A vinheta escala pela ALTURA (cada metade tem 0,24*altura), então a abertura é
+   largura da tela menos ~22% da altura: vale para qualquer proporção de celular. */
+.vertical { --u: 14vmin; --w: max(160px, calc(100vw - 22dvh)); }
 .horizontal { --u: 9.5vmin; }
 
 /* Vinheta: duas metades do modelo, coladas nas bordas, na altura da tela (proporção 585:2415). */
@@ -37,7 +39,7 @@ body { background: var(--bege); }
 body { color: #222; font-family: system-ui, sans-serif; }
 
 /* Diálogos: conversa de WhatsApp (balões à esquerda, empilhados). */
-.dialogos { position: relative; z-index: 5; height: 100dvh; display: flex; flex-direction: column; justify-content: center; padding: 6dvh 18vw; }
+.dialogos { position: relative; z-index: 5; height: 100dvh; display: flex; flex-direction: column; justify-content: center; padding: 6dvh calc((100vw - var(--w, 64vw)) / 2); }
 .horizontal .dialogos { padding: 6dvh 20vw; }
 .chat { max-height: 100%; overflow-y: auto; scrollbar-width: none; display: flex; flex-direction: column; gap: 4px; max-width: 30rem; margin: 0 auto; width: 100%; }
 .chat::-webkit-scrollbar { display: none; }
@@ -65,6 +67,10 @@ body { color: #222; font-family: system-ui, sans-serif; }
   color: var(--ouro); font-family: 'Cormorant SC', serif; font-weight: 600; font-variant-numeric: oldstyle-nums;
   letter-spacing: 0.02em;
 }
+/* Celular: coluna na largura livre entre as flores; fonte limitada pela altura E por essa largura; folgas pela altura. */
+.vertical .convite { width: var(--w); max-width: none; padding-inline: 0; font-size: min(1.75dvh, calc(var(--w) / 14.5)); gap: 1.6dvh; justify-content: space-between; }
+.vertical .acoes { margin-top: 0; padding-top: 0; }
+.vertical .convite h1 { font-size: 2.2em; }
 /* Desktop: base maior e proporcional à altura; coluna mais larga; folga p/ as flores de cima e de baixo. */
 .horizontal .convite {
   font-size: min(2.1dvh, 1.5vw, 30px); max-width: 44em; gap: 0.9em;

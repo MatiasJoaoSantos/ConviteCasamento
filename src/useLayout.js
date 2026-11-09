@@ -1,15 +1,16 @@
 import { useSyncExternalStore } from 'react'
 
-// Aparelho de toque (celular/tablet) => 'vertical'; mouse (desktop) => 'horizontal'.
-// Decide pelo aparelho, não pela largura da janela: janela estreita/zoom no desktop continua horizontal.
+// 'vertical' (celular/tablet ou qualquer janela mais alta que larga) ou 'horizontal' (desktop, janela deitada).
+// Só o toque não basta: alguns celulares/navegadores (modo "site para computador", mouse conectado) não se
+// declaram touch, caíam no layout de desktop e o convite saía minúsculo. A proporção da tela decide junto.
 // Para testar: ?layout=vertical ou ?layout=horizontal na URL.
-const mq = window.matchMedia('(hover: none) and (pointer: coarse)')
+const mqs = [matchMedia('(hover: none) and (pointer: coarse)'), matchMedia('(orientation: portrait)')]
 const forcado = new URLSearchParams(location.search).get('layout')
 
 export default function useLayout() {
-  const toque = useSyncExternalStore(
-    (cb) => (mq.addEventListener('change', cb), () => mq.removeEventListener('change', cb)),
-    () => mq.matches,
+  const vertical = useSyncExternalStore(
+    (cb) => (mqs.forEach((m) => m.addEventListener('change', cb)), () => mqs.forEach((m) => m.removeEventListener('change', cb))),
+    () => mqs.some((m) => m.matches),
   )
-  return forcado || (toque ? 'vertical' : 'horizontal')
+  return forcado || (vertical ? 'vertical' : 'horizontal')
 }

@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "gsap": "^3.15.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "postbuild": "node scripts/verificar-segredo.mjs",
+    "check:segredo": "node scripts/verificar-segredo.mjs --staged"
+  }
+}

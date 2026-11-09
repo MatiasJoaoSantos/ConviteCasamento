@@ -1,7 +1,8 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import gsap from 'gsap'
 
-const IMG = `${import.meta.env.BASE_URL}envelope/`
+// url() dentro de variável CSS é resolvida a partir do CSS (assets/), não da página: precisa ser absoluta
+const IMG = new URL(`${import.meta.env.BASE_URL}envelope/`, document.baseURI).href
 const SELO = 1 // o sprite do selo está na mesma escala do selo da foto
 const ABERTURA = 88 // graus que a aba sobe
 

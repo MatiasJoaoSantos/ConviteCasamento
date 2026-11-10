@@ -1,5 +1,7 @@
 const LOCAL = 'Águas de Minas Eventos, Rua Esmeraldas, 113 - Pedra Azul, Contagem-MG'
 const RSVP = 'https://forms.gle/JNCUWHWJMvHRPKZh6'
+// ponytail: link da lista de presentes ainda não informado; trocar '#' pelo endereço real.
+const PRESENTES = '#'
 const MAPS = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(LOCAL)}`
 // ponytail: fim do evento chutado (23h); ajustar quando souber.
 const AGENDA = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({
@@ -43,6 +45,10 @@ export default function Convite() {
         <a href={RSVP} target="_blank" rel="noreferrer">
           <Icone><rect x="5" y="4" width="14" height="17" rx="2" /><path d="M9 4h6v3H9zM9 12l1.5 1.5L14 10M9 17h6" /></Icone>
           <span>Confirme sua presença</span>
+        </a>
+        <a href={PRESENTES} target="_blank" rel="noreferrer">
+          <Icone><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M5 12v8h14v-8M12 8v12M12 8c-1.5-4-5-4-5-1.5C7 8 9 8 12 8zM12 8c1.5-4 5-4 5-1.5C17 8 15 8 12 8z" /></Icone>
+          <span>Lista de presentes</span>
         </a>
       </div>
     </section>

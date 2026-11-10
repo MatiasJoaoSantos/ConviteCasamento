@@ -41,7 +41,7 @@ export default function Dialogos({ onFim }) {
         {link && (
           <div className="msg">
             <span className="avatar" />
-            <p className="balao"><button className="link" onClick={onFim}>clique aqui para receber o convite</button></p>
+            <p className="balao"><button className="link" onClick={onFim}>convite</button></p>
           </div>
         )}
         {digitando && (

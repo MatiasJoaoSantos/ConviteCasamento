@@ -16,3 +16,7 @@ originais/
 /a.png
 /b.png
 public/img/
+
+# próxima etapa (envio por WhatsApp): código, lista de convidados e telefones ficam só na máquina (repositório é público)
+whatsapp/
+convidados*

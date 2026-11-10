@@ -1,7 +1,6 @@
 const LOCAL = 'Águas de Minas Eventos, Rua Esmeraldas, 113 - Pedra Azul, Contagem-MG'
 const RSVP = 'https://forms.gle/JNCUWHWJMvHRPKZh6'
-// ponytail: link da lista de presentes ainda não informado; trocar '#' pelo endereço real.
-const PRESENTES = '#'
+const PRESENTES = 'https://noivos.casar.com/sarah-e-matias'
 const MAPS = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(LOCAL)}`
 // ponytail: fim do evento chutado (23h); ajustar quando souber.
 const AGENDA = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({

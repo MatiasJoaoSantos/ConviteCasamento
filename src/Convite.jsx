@@ -4,7 +4,7 @@ const PRESENTES = 'https://noivos.casar.com/sarah-e-matias'
 const MAPS = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(LOCAL)}`
 // ponytail: fim do evento chutado (23h); ajustar quando souber.
 const AGENDA = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({
-  action: 'TEMPLATE', text: 'Casamento Sarah e João', dates: '20261213T163000/20261213T230000',
+  action: 'TEMPLATE', text: 'Casamento Sarah e João', dates: '20261213T160000/20261213T230000',
   ctz: 'America/Sao_Paulo', location: LOCAL,
 })
 
@@ -26,10 +26,10 @@ export default function Convite() {
       <h1><i>S</i>arah <i>S</i>thefany <small>&amp;</small> <i>J</i>oão <i>M</i>atias</h1>
       <p className="convidam">Te convidamos para o nosso casamento</p>
       <div className="data">
-        <time dateTime="2026-12-13T16:30" aria-label="Domingo, 13 de dezembro de 2026, às 16h30">
+        <time dateTime="2026-12-13T16:00" aria-label="Domingo, 13 de dezembro de 2026, às 16h">
           <span className="mes">dezembro</span>
           <span className="dia">
-            <span>Às 16h30</span>
+            <span>Às 16h</span>
             <span className="num"><strong>13</strong><span>2026</span></span>
             <span>Domingo</span>
           </span>
